@@ -1,7 +1,7 @@
 import json
 import requests
 
-API_KEY = "BURAYA_API_KEY_YAPIŞTIR"
+API_KEY = "AIzaSyBbl4QmrbgNv-U1k1RAfuoYOXuvT0z8JEo"
 
 def handler(request):
     user_input = "Merhaba"
