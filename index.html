@@ -12,7 +12,7 @@
 async function gonder() {
     let mesaj = document.getElementById("input").value;
 
-    const res = await fetch("/api")
+    const res = await <button fetch("/api/app")
     const data = await res.json();
 
     document.getElementById("cevap").innerText = data.response;
