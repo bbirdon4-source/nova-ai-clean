@@ -4,7 +4,8 @@ import requests
 API_KEY = "AIzaSyBbl4QmrbgNv-U1k1RAfuoYOXuvT0z8JEo"
 
 def handler(request):
-    user_input = "Merhaba"
+    body = json.loads(request.body)
+    user_input = body.get("mesaj", "")
 
     url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key={API_KEY}"
 
