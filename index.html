@@ -1,24 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Nova AI</title>
+</head>
 <body>
 
 <h2>Nova AI 🤖</h2>
 
-<input id="input">
+<div id="chat"></div>
 
-<p id="cevap"></p>
+<input id="input" placeholder="Bir şey yaz..." />
+<button onclick="gonder()">Gönder</button>
 
 <script>
 async function gonder() {
-    let mesaj = document.getElementById("input").value;
+    const input = document.getElementById("input");
+    const chat = document.getElementById("chat");
 
-    const res = await <button fetch("/api/app")
+    let mesaj = input.value;
+
+    chat.innerHTML += "<p><b>Sen:</b> " + mesaj + "</p>";
+
+    const res = await fetch("/api/app", {
+        method: "POST",
+        body: JSON.stringify({ mesaj })
+    });
+
     const data = await res.json();
 
-    document.getElementById("cevap").innerText = data.response;
+    chat.innerHTML += "<p><b>AI:</b> " + data.response + "</p>";
+
+    input.value = "";
 }
 </script>
 
 </body>
 </html>
-<button onclick="alert('çalıştı')">Gönder</button>
