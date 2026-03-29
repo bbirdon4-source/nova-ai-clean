@@ -1,1 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
 
+<h2>Nova AI 🤖</h2>
+
+<input id="input">
+<button onclick="gonder()">Gönder</button>
+
+<p id="cevap"></p>
+
+<script>
+async function gonder() {
+    let mesaj = document.getElementById("input").value;
+
+    const res = await fetch("/api/app");
+    const data = await res.json();
+
+    document.getElementById("cevap").innerText = data.response;
+}
+</script>
+
+</body>
+</html>
